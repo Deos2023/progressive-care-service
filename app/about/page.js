@@ -8,7 +8,7 @@ const AboutUs = () => {
       {/* Hero Section */}
       <section className="relative py-20 bg-green-700 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Anona Pest Control</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About progressive care service</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Protecting homes and businesses with trusted pest control solutions since 2005
           </p>
@@ -22,7 +22,7 @@ const AboutUs = () => {
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
               <p className="text-gray-600 mb-4">
-                Founded in 2005, Anona Pest Control began as a small family business with a mission to provide 
+                Founded in 2005, progressive care service began as a small family business with a mission to provide 
                 effective, safe pest control solutions to our local community. What started as a single truck 
                 operation has grown into one of the region's most trusted pest management companies.
               </p>
@@ -41,7 +41,7 @@ const AboutUs = () => {
               <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src="/images/2.jpg"
-                  alt="Anona Pest Control Team"
+                  alt="progressive care service Team"
                   fill
                   className="object-cover"
                 />
@@ -98,7 +98,7 @@ const AboutUs = () => {
       {/* Why Choose Us */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Why Choose Anona Pest Control</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Why Choose progressive care service</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
@@ -263,7 +263,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Protect Your Property?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Join thousands of satisfied customers who trust Anona Pest Control with their homes and businesses.
+            Join thousands of satisfied customers who trust progressive care service with their homes and businesses.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a 

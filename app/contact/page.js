@@ -88,8 +88,8 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>Contact Us | Anona Pest Control</title>
-        <meta name="description" content="Get in touch with Anona Pest Control for professional pest management services." />
+        <title>Contact Us | Progressive care service</title>
+        <meta name="description" content="Get in touch with Progressive care service for professional pest management services." />
       </Head>
 
       {/* Hero Section */}
@@ -327,7 +327,7 @@ const ContactPage = () => {
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-64 lg:h-80"
-                  title="Anona Pest Control Location"
+                  title="Progressive care service Location"
                 ></iframe>
                 <div className="p-4">
                   <h3 className="font-semibold text-gray-800">Our Location</h3>

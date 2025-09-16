@@ -203,7 +203,7 @@ const GalleryPage = () => {
   return (
     <div className="min-h-screen">
       <Head>
-        <title>Our Gallery | Anona Pest Control</title>
+        <title>Our Gallery | Progressive care service</title>
         <meta name="description" content="View our pest control gallery showcasing our services, team, and results." />
       </Head>
 
