@@ -103,7 +103,7 @@ const Footer = () => {
             href="tel:1355555555" 
             className="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
           >
-            Call Now: (355) 555-5555
+            Call Now: 9831679025, 7439839760, 9804046058
           </a>
         </div>
       </div>

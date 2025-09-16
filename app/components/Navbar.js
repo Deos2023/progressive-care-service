@@ -40,10 +40,10 @@ const Navbar = () => {
       <div className="bg-green-800 text-white text-sm py-2 px-4 flex justify-between items-center">
         <div className="flex items-center">
           <FaPhone className="mr-2 text-xs" />
-          <span>Call Us: 1355 555-555</span>
+          <span>Call Us: 03379664262</span>
         </div>
         <div className="flex items-center">
-          <span>Email: info@condonai.com</span>
+          <span>Email: somu.progressive76@gmail.com</span>
         </div>
       </div>
 

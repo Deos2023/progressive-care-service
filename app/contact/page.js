@@ -1,41 +1,49 @@
-"use client"
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
-import { motion } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaPaperPlane, FaUser, FaComment } from 'react-icons/fa';
+"use client";
+import { useState, useEffect } from "react";
+import Head from "next/head";
+import { motion } from "framer-motion";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaClock,
+  FaPaperPlane,
+  FaUser,
+  FaComment,
+} from "react-icons/fa";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
       });
     }, 3000);
   };
@@ -46,9 +54,9 @@ const ContactPage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -57,9 +65,9 @@ const ContactPage = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const formVariants = {
@@ -68,9 +76,9 @@ const ContactPage = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.8
-      }
-    }
+        duration: 0.8,
+      },
+    },
   };
 
   const mapVariants = {
@@ -80,21 +88,24 @@ const ContactPage = () => {
       x: 0,
       transition: {
         duration: 0.8,
-        delay: 0.3
-      }
-    }
+        delay: 0.3,
+      },
+    },
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
         <title>Contact Us | Progressive care service</title>
-        <meta name="description" content="Get in touch with Progressive care service for professional pest management services." />
+        <meta
+          name="description"
+          content="Get in touch with Progressive care service for professional pest management services."
+        />
       </Head>
 
       {/* Hero Section */}
       <section className="relative py-20 bg-green-700 text-white overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -118,11 +129,16 @@ const ContactPage = () => {
             className="grid grid-cols-1 lg:grid-cols-2 gap-12"
           >
             {/* Contact Form */}
-            <motion.div variants={formVariants} className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
-              
+            <motion.div
+              variants={formVariants}
+              className="bg-white rounded-xl shadow-lg p-8"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                Send us a Message
+              </h2>
+
               {isSubmitted ? (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 text-center"
@@ -131,10 +147,13 @@ const ContactPage = () => {
                   <p>We'll get back to you as soon as possible.</p>
                 </motion.div>
               ) : null}
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Your Name *
                   </label>
                   <div className="relative">
@@ -155,7 +174,10 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-800 mb-1"
+                  >
                     Email Address *
                   </label>
                   <div className="relative">
@@ -176,7 +198,10 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Phone Number
                   </label>
                   <div className="relative">
@@ -196,7 +221,10 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="service"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Service Interested In
                   </label>
                   <select
@@ -220,7 +248,10 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Message *
                   </label>
                   <div className="relative">
@@ -255,24 +286,38 @@ const ContactPage = () => {
             {/* Contact Info & Map */}
             <motion.div variants={mapVariants} className="space-y-8">
               {/* Contact Information */}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="bg-white rounded-xl shadow-lg p-8"
               >
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h2>
-                
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                  Get in Touch
+                </h2>
+
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="bg-green-100 p-3 rounded-full mr-4">
                       <FaPhone className="text-green-600 text-lg" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Phone Numbers</h3>
+                      <h3 className="font-semibold text-gray-800">
+                        Phone Numbers
+                      </h3>
                       <p className="text-gray-600">
-                        <a href="tel:1355555555" className="hover:text-green-600 transition-colors">+1 (355) 555-5555</a>
+                        <a
+                          href="tel:1355555555"
+                          className="hover:text-green-600 transition-colors"
+                        >
+                          03379664262
+                        </a>
                       </p>
                       <p className="text-gray-600">
-                        <a href="tel:9804351651" className="hover:text-green-600 transition-colors">+1 (980) 435-1651</a>
+                        <a
+                          href="tel:9804351651"
+                          className="hover:text-green-600 transition-colors"
+                        >
+                          9831679025,7439839760
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -282,9 +327,16 @@ const ContactPage = () => {
                       <FaEnvelope className="text-green-600 text-lg" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Email Address</h3>
+                      <h3 className="font-semibold text-gray-800">
+                        Email Address
+                      </h3>
                       <p className="text-gray-600">
-                        <a href="mailto:info@condonai.com" className="hover:text-green-600 transition-colors">info@condonai.com</a>
+                        <a
+                          href="mailto:info@condonai.com"
+                          className="hover:text-green-600 transition-colors"
+                        >
+                          somu.progressive76@gmail.com
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -294,8 +346,12 @@ const ContactPage = () => {
                       <FaMapMarkerAlt className="text-green-600 text-lg" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Office Location</h3>
-                      <p className="text-gray-600">123 Pest Control Avenue, City, State 12345</p>
+                      <h3 className="font-semibold text-gray-800">
+                        Office Location
+                      </h3>
+                      <p className="text-gray-600">
+                        , 22/127 Raja Manindra Road Kolkata-700037
+                      </p>
                     </div>
                   </div>
 
@@ -304,34 +360,44 @@ const ContactPage = () => {
                       <FaClock className="text-green-600 text-lg" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Business Hours</h3>
-                      <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                      <p className="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
-                      <p className="text-gray-600">Sunday: Emergency Services Only</p>
+                      <h3 className="font-semibold text-gray-800">
+                        Business Hours
+                      </h3>
+                      <p className="text-gray-600">
+                        Monday - Friday: 8:00 AM - 6:00 PM
+                      </p>
+                      <p className="text-gray-600">
+                        Saturday: 9:00 AM - 4:00 PM
+                      </p>
+                      <p className="text-gray-600">
+                        Sunday: Emergency Services Only
+                      </p>
                     </div>
                   </div>
                 </div>
               </motion.div>
 
               {/* Map */}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.137318541873!2d88.3830626!3d22.611346800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027143f9477215%3A0xf133dfce402c3bfc!2sProgressive%20Care%20Service!5e0!3m2!1sen!2sin!4v1758026441210!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="300" 
-                  style={{ border: 0 }} 
-                  allowFullScreen="" 
-                  loading="lazy" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.137318541873!2d88.3830626!3d22.611346800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027143f9477215%3A0xf133dfce402c3bfc!2sProgressive%20Care%20Service!5e0!3m2!1sen!2sin!4v1758026441210!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-64 lg:h-80"
                   title="Progressive care service Location"
                 ></iframe>
                 <div className="p-4">
                   <h3 className="font-semibold text-gray-800">Our Location</h3>
-                  <p className="text-sm text-gray-600">Find us easily with the map directions</p>
+                  <p className="text-sm text-gray-600">
+                    Find us easily with the map directions
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -340,7 +406,7 @@ const ContactPage = () => {
       </section>
 
       {/* Emergency Contact Banner */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -348,12 +414,15 @@ const ContactPage = () => {
         className="py-12 bg-green-600 text-white"
       >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">24/7 Emergency Pest Control</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            24/7 Emergency Pest Control
+          </h2>
           <p className="text-xl mb-6 max-w-3xl mx-auto">
-            Need immediate assistance with a pest emergency? We're available round the clock.
+            Need immediate assistance with a pest emergency? We're available
+            round the clock.
           </p>
-          <a 
-            href="tel:1355555555" 
+          <a
+            href="tel:1355555555"
             className="inline-block bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors"
           >
             <FaPhone className="inline mr-2" />
