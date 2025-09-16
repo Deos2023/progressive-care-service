@@ -113,7 +113,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-3 md:mb-0">
-              © {new Date().getFullYear()} Progressive Pest Control. All rights reserved.
+              © {new Date().getFullYear()} Progressive Pest Control. All rights reserved.Developed and maintained by Digital Exposure Online Services
             </p>
             <div className="flex space-x-6">
               <a href="/privacy-policy" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Privacy Policy</a>
