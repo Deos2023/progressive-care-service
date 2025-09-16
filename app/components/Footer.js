@@ -202,7 +202,7 @@ const Footer = () => {
                   href="mailto:info@condonai.com"
                   className="text-gray-300 hover:text-green-400 transition-colors"
                 >
-                  info@condonai.com
+                  somu.progressive76@gmail.com
                 </a>
               </li>
               <li className="flex items-start">
