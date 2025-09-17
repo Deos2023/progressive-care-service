@@ -128,7 +128,7 @@ const Navbar = () => {
               }`}
             >
               <FaPhone className="text-sm" />
-              <span>Emergency Call</span>
+              <span>Call now</span>
             </a>
           </div>
 
