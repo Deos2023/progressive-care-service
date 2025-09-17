@@ -1,39 +1,53 @@
-"use client"
-import React, { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { FaPhone, FaBars, FaTimes, FaBug, FaHome, FaInfoCircle, FaCogs, FaImages, FaEnvelope } from "react-icons/fa"
+"use client";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  FaPhone,
+  FaBars,
+  FaTimes,
+  FaBug,
+  FaHome,
+  FaInfoCircle,
+  FaCogs,
+  FaImages,
+  FaEnvelope,
+} from "react-icons/fa";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activePage, setActivePage] = useState("Home")
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activePage, setActivePage] = useState("Home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Set active page based on current URL
   useEffect(() => {
-    const pathname = window.location.pathname
-    if (pathname === "/") setActivePage("Home")
-    else if (pathname === "/about") setActivePage("About")
-    else if (pathname === "/services") setActivePage("Services")
-    else if (pathname === "/gallery") setActivePage("Gallery")
-    else if (pathname === "/contact") setActivePage("Contact")
-  }, [])
+    const pathname = window.location.pathname;
+    if (pathname === "/") setActivePage("Home");
+    else if (pathname === "/about") setActivePage("About");
+    else if (pathname === "/services") setActivePage("Services");
+    else if (pathname === "/gallery") setActivePage("Gallery");
+    else if (pathname === "/contact") setActivePage("Contact");
+  }, []);
 
   const navItems = [
     { name: "Home", path: "/", icon: <FaHome className="mr-1" /> },
     { name: "About", path: "/about", icon: <FaInfoCircle className="mr-1" /> },
     { name: "Services", path: "/services", icon: <FaCogs className="mr-1" /> },
     { name: "Gallery", path: "/gallery", icon: <FaImages className="mr-1" /> },
-    { name: "Contact", path: "/contact", icon: <FaEnvelope className="mr-1" /> },
-  ]
+    {
+      name: "Contact",
+      path: "/contact",
+      icon: <FaEnvelope className="mr-1" />,
+    },
+  ];
 
   return (
     <div>
@@ -62,12 +76,14 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center"
           >
-           <div className="relative h-10 w-40 mr-2">
+            <div className="relative h-12 w-43 mr-4">
               <Image
                 src="/images/logo.jpg"
                 alt="Progressive Care Service"
                 fill
-                className={`object-contain ${isScrolled ? "" : "filter brightness-0 invert"}`}
+                className={`object-contain transition-opacity duration-300 ${
+                  isScrolled ? "opacity-100" : "opacity-90"
+                }`}
               />
             </div>
             <h1
@@ -86,13 +102,13 @@ const Navbar = () => {
                 key={i}
                 href={item.path}
                 className={`font-medium transition-colors duration-300 flex items-center ${
-                  isScrolled 
-                    ? activePage === item.name 
-                      ? "text-green-600 border-b-2 border-green-600" 
+                  isScrolled
+                    ? activePage === item.name
+                      ? "text-green-600 border-b-2 border-green-600"
                       : "text-gray-800 hover:text-green-600"
                     : activePage === item.name
-                      ? "text-green-300 border-b-2 border-green-300"
-                      : "text-white hover:text-green-300"
+                    ? "text-green-300 border-b-2 border-green-300"
+                    : "text-white hover:text-green-300"
                 }`}
               >
                 {item.icon}
@@ -131,7 +147,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -160,7 +176,7 @@ const Navbar = () => {
         )}
       </nav>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
