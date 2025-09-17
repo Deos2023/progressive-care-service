@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import CountUp from '../components/CountUp';
 import { FaCheckCircle, FaUsers, FaShieldAlt, FaAward, FaLeaf } from 'react-icons/fa';
 
 const AboutUs = () => {
@@ -169,28 +170,7 @@ const AboutUs = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-green-700 text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">18+</div>
-              <div className="text-lg">Years Experience</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">15,000+</div>
-              <div className="text-lg">Happy Customers</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-lg">Satisfaction Guarantee</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-lg">Emergency Service</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CountUp/>
 
       {/* Team Section */}
       <section className="py-16 bg-gray-50">
