@@ -33,9 +33,11 @@ const WhyChooseUs = () => {
               Why Choose Progressive Care Service?
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              With over 15 years of experience, we've developed the most
-              effective pest control strategies that prioritize your safety and
-              deliver lasting results.
+              We provide reliable service to our customers since 2004. Our
+              motive is to provide a safe and healthy environment to our customers. With over 20 years of
+              experience, we've developed the most effective pest control
+              strategies that prioritize your safety and deliver lasting
+              results.
             </p>
 
             <div className="space-y-4">

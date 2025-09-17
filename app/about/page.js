@@ -1,7 +1,13 @@
 "use client";
-import Image from 'next/image';
-import CountUp from '../components/CountUp';
-import { FaCheckCircle, FaUsers, FaShieldAlt, FaAward, FaLeaf } from 'react-icons/fa';
+import Image from "next/image";
+import CountUp from "../components/CountUp";
+import {
+  FaCheckCircle,
+  FaUsers,
+  FaShieldAlt,
+  FaAward,
+  FaLeaf,
+} from "react-icons/fa";
 
 const AboutUs = () => {
   return (
@@ -9,9 +15,12 @@ const AboutUs = () => {
       {/* Hero Section */}
       <section className="relative py-20 bg-green-700 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About progressive care service</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            About progressive care service
+          </h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Protecting homes and businesses with trusted pest control solutions since 2005
+            Protecting homes and businesses with trusted pest control solutions
+            since 2004
           </p>
         </div>
       </section>
@@ -21,21 +30,28 @@ const AboutUs = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="md:w-1/2">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                Our Story
+              </h2>
               <p className="text-gray-600 mb-4">
-                Founded in 2005, progressive care service began as a small family business with a mission to provide 
-                effective, safe pest control solutions to our local community. What started as a single truck 
-                operation has grown into one of the region's most trusted pest management companies.
+                Founded in 2004, progressive care service began as a small
+                family business with a mission to provide effective, safe pest
+                control solutions to our local community. What started as a
+                single truck operation has grown into one of the region's most
+                trusted pest management companies.
               </p>
               <p className="text-gray-600 mb-4">
-                Our founder, John Anona, recognized the need for pest control services that prioritize both 
-                effectiveness and environmental responsibility. This vision continues to guide our company 
-                today as we serve thousands of satisfied customers across the state.
+                To ensure quality and skilled service to our customers, we only
+                ensure certified technicians for customer service
               </p>
               <p className="text-gray-600">
-                Over the years, we've expanded our services, trained expert technicians, and invested in 
-                the latest pest control technologies, but our commitment to exceptional service and customer 
-                satisfaction remains unchanged.
+                We validate our service with our quality assurance program,
+                which guarantees your pest management service meets Progressive
+                high-quality standards. We always believe in good quality of
+                service to customer through our highly trained technician team.
+                Last but not the least we deploy the strategy of spraying
+                selectively & efficiently the pesticide in most safe manner
+                having the least impact on the environment health and safety
               </p>
             </div>
             <div className="md:w-1/2">
@@ -56,9 +72,12 @@ const AboutUs = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Mission & Values</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Our Mission & Values
+            </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Everything we do is guided by our core values and commitment to excellence in pest management
+              Everything we do is guided by our core values and commitment to
+              excellence in pest management
             </p>
           </div>
 
@@ -67,9 +86,13 @@ const AboutUs = () => {
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FaShieldAlt className="text-green-600 text-2xl" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Protection</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Protection
+              </h3>
               <p className="text-gray-600">
-                We protect what matters most to you - your home, your business, and your family's health.
+                Guide lines followed by our company for operation a strictly
+                enforced to ensure that all the License followed according to
+                Government laws, that means you get 100% genuine service.
               </p>
             </div>
 
@@ -77,9 +100,12 @@ const AboutUs = () => {
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FaLeaf className="text-green-600 text-2xl" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Eco-Friendly Approach</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Eco-Friendly Approach
+              </h3>
               <p className="text-gray-600">
-                We use environmentally responsible methods that are safe for your family and pets.
+                We use eco-friendly product which develop under the latest
+                technology.
               </p>
             </div>
 
@@ -87,9 +113,12 @@ const AboutUs = () => {
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FaUsers className="text-green-600 text-2xl" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Customer Focus</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Customer Focus
+              </h3>
               <p className="text-gray-600">
-                Your satisfaction is our top priority. We're not happy until you're completely satisfied.
+                Your satisfaction is our top priority. We're not happy until
+                you're completely satisfied.
               </p>
             </div>
           </div>
@@ -99,16 +128,21 @@ const AboutUs = () => {
       {/* Why Choose Us */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Why Choose progressive care service</h2>
-          
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">
+            Why Choose progressive care service
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
               <div className="flex items-start mb-6">
                 <FaCheckCircle className="text-green-600 text-xl mt-1 mr-4" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Certified Experts</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    Certified Experts
+                  </h3>
                   <p className="text-gray-600">
-                    Our technicians are licensed, certified, and receive ongoing training in the latest pest control methods.
+                    Our technicians are licensed, certified, and receive ongoing
+                    training in the latest pest control methods.
                   </p>
                 </div>
               </div>
@@ -116,9 +150,12 @@ const AboutUs = () => {
               <div className="flex items-start mb-6">
                 <FaCheckCircle className="text-green-600 text-xl mt-1 mr-4" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Advanced Technology</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    Advanced Technology
+                  </h3>
                   <p className="text-gray-600">
-                    We use state-of-the-art equipment and the most effective products available for lasting results.
+                    We use state-of-the-art equipment and the most effective
+                    products available for lasting results.
                   </p>
                 </div>
               </div>
@@ -126,9 +163,12 @@ const AboutUs = () => {
               <div className="flex items-start mb-6">
                 <FaCheckCircle className="text-green-600 text-xl mt-1 mr-4" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Guaranteed Results</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    Guaranteed Results
+                  </h3>
                   <p className="text-gray-600">
-                    We stand behind our work with satisfaction guarantees and follow-up services if needed.
+                    We stand behind our work with satisfaction guarantees and
+                    follow-up services if needed.
                   </p>
                 </div>
               </div>
@@ -138,9 +178,12 @@ const AboutUs = () => {
               <div className="flex items-start mb-6">
                 <FaCheckCircle className="text-green-600 text-xl mt-1 mr-4" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Emergency Services</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    Emergency Services
+                  </h3>
                   <p className="text-gray-600">
-                    Available 24/7 for urgent pest problems that can't wait for regular business hours.
+                    Available 24/7 for urgent pest problems that can't wait for
+                    regular business hours.
                   </p>
                 </div>
               </div>
@@ -148,9 +191,12 @@ const AboutUs = () => {
               <div className="flex items-start mb-6">
                 <FaCheckCircle className="text-green-600 text-xl mt-1 mr-4" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Custom Solutions</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    Custom Solutions
+                  </h3>
                   <p className="text-gray-600">
-                    We develop tailored treatment plans based on your specific pest problem and property type.
+                    We develop tailored treatment plans based on your specific
+                    pest problem and property type.
                   </p>
                 </div>
               </div>
@@ -158,9 +204,12 @@ const AboutUs = () => {
               <div className="flex items-start mb-6">
                 <FaCheckCircle className="text-green-600 text-xl mt-1 mr-4" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Local Expertise</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    Local Expertise
+                  </h3>
                   <p className="text-gray-600">
-                    As a locally owned business, we understand the specific pest challenges in our region.
+                    As a locally owned business, we understand the specific pest
+                    challenges in our region.
                   </p>
                 </div>
               </div>
@@ -170,13 +219,15 @@ const AboutUs = () => {
       </section>
 
       {/* Stats Section */}
-      <CountUp/>
+      <CountUp />
 
       {/* Team Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Meet Our Leadership Team</h2>
-          
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">
+            Meet Our Leadership Team
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg overflow-hidden shadow-md text-center">
               <div className="relative h-72">
@@ -188,11 +239,13 @@ const AboutUs = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800">John Anona</h3>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  John Anona
+                </h3>
                 <p className="text-green-600 mb-3">Founder & CEO</p>
                 <p className="text-gray-600">
-                  With over 20 years in the pest control industry, John founded Anona with a vision for safer, 
-                  more effective pest management.
+                  With over 20 years in the pest control industry, John founded
+                  Anona with a vision for safer, more effective pest management.
                 </p>
               </div>
             </div>
@@ -207,11 +260,14 @@ const AboutUs = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800">Sarah Johnson</h3>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  Sarah Johnson
+                </h3>
                 <p className="text-green-600 mb-3">Operations Manager</p>
                 <p className="text-gray-600">
-                  Sarah ensures our operations run smoothly and that every customer receives exceptional service 
-                  from initial contact to job completion.
+                  Sarah ensures our operations run smoothly and that every
+                  customer receives exceptional service from initial contact to
+                  job completion.
                 </p>
               </div>
             </div>
@@ -226,11 +282,14 @@ const AboutUs = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800">Michael Chen</h3>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  Michael Chen
+                </h3>
                 <p className="text-green-600 mb-3">Head Technician</p>
                 <p className="text-gray-600">
-                  Michael leads our team of technicians with expertise in integrated pest management and 
-                  eco-friendly treatment solutions.
+                  Michael leads our team of technicians with expertise in
+                  integrated pest management and eco-friendly treatment
+                  solutions.
                 </p>
               </div>
             </div>
@@ -241,22 +300,25 @@ const AboutUs = () => {
       {/* CTA Section */}
       <section className="py-16 bg-green-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Protect Your Property?</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to Protect Your Property?
+          </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Join thousands of satisfied customers who trust progressive care service with their homes and businesses.
+            Join thousands of satisfied customers who trust progressive care
+            service with their homes and businesses.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="/contact" 
+            <a
+              href="/contact"
               className="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors"
             >
               Get Free Inspection
             </a>
-            <a 
-              href="tel:1355555555" 
+            <a
+              href="tel:03379664262"
               className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-bold py-3 px-8 rounded-lg transition-colors"
             >
-              Call Now: (355) 555-5555
+              Call Now: 03379664262
             </a>
           </div>
         </div>
