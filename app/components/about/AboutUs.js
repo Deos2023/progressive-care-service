@@ -1,5 +1,7 @@
 "use client";
 import { FaCheckCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
+
 const WhyChooseUs = () => {
   const features = [
     {
@@ -24,25 +26,55 @@ const WhyChooseUs = () => {
     },
   ];
 
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, x: -30 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0">
+          {/* Left Side */}
+          <motion.div
+            className="md:w-1/2 mb-10 md:mb-0"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
               Why Choose Progressive Care Service?
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              We provide reliable service to our customers since 2004. Our
-              motive is to provide a safe and healthy environment to our customers. With over 20 years of
-              experience, we've developed the most effective pest control
-              strategies that prioritize your safety and deliver lasting
-              results.
+              We provide reliable service to our customers since 2004. Our motive is to
+              provide a safe and healthy environment to our customers. With over 20 years
+              of experience, we've developed the most effective pest control strategies
+              that prioritize your safety and deliver lasting results.
             </p>
 
-            <div className="space-y-4">
+            <motion.div
+              className="space-y-4"
+              variants={container}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start">
+                <motion.div
+                  key={index}
+                  variants={item}
+                  className="flex items-start"
+                >
                   <FaCheckCircle className="text-green-600 text-xl mt-1 mr-3" />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">
@@ -50,19 +82,26 @@ const WhyChooseUs = () => {
                     </h3>
                     <p className="text-gray-600">{feature.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="md:w-1/2 md:pl-12">
-            <div className="bg-green-100 p-8 rounded-lg">
+          {/* Right Side (Form) */}
+          <motion.div
+            className="md:w-1/2 md:pl-12"
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <div className="bg-green-100 p-8 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
                 Schedule a Free Inspection
               </h3>
               <p className="text-gray-600 mb-6">
-                Contact us today to schedule a free pest inspection and get a
-                customized treatment plan.
+                Contact us today to schedule a free pest inspection and get a customized
+                treatment plan.
               </p>
 
               <form className="space-y-4">
@@ -81,18 +120,21 @@ const WhyChooseUs = () => {
                   placeholder="Your Phone"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500"
                 />
-                <button
+                <motion.button
                   type="submit"
+                  whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.15)" }}
+                  whileTap={{ scale: 0.97 }}
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                 >
                   Request Free Inspection
-                </button>
+                </motion.button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
+
 export default WhyChooseUs;

@@ -1,6 +1,6 @@
 "use client";
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import {
   FaPhone,
   FaEnvelope,
@@ -19,9 +19,9 @@ const Footer = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -30,9 +30,9 @@ const Footer = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   const socialVariants = {
@@ -42,9 +42,9 @@ const Footer = () => {
       transition: {
         type: "spring",
         stiffness: 260,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   };
 
   // Use intersection observer for animations
@@ -56,7 +56,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white overflow-hidden">
       {/* Main Footer Content */}
-      <motion.div 
+      <motion.div
         ref={ref}
         variants={containerVariants}
         initial="hidden"
@@ -66,7 +66,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <motion.div variants={itemVariants} className="lg:col-span-1">
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -75,7 +75,7 @@ const Footer = () => {
               <span className="text-green-500 mr-2">Progressive </span> Care
               Service.
             </motion.h3>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -84,7 +84,7 @@ const Footer = () => {
               Providing professional pest control services with safe, effective,
               and eco-friendly solutions for homes and businesses.
             </motion.p>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -94,7 +94,7 @@ const Footer = () => {
                 { icon: <FaFacebookF />, href: "#" },
                 { icon: <FaTwitter />, href: "#" },
                 { icon: <FaInstagram />, href: "#" },
-                { icon: <FaLinkedinIn />, href: "#" }
+                { icon: <FaLinkedinIn />, href: "#" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -112,7 +112,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <motion.h4 
+            <motion.h4
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -127,7 +127,7 @@ const Footer = () => {
                 { name: "Services", href: "/services" },
                 { name: "Gallery", href: "/gallery" },
                 { name: "Contact Us", href: "/contact" },
-                { name: "Blog", href: "/blog" }
+                { name: "Blog", href: "/blog" },
               ].map((link, index) => (
                 <motion.li
                   key={index}
@@ -148,7 +148,7 @@ const Footer = () => {
 
           {/* Services */}
           <motion.div variants={itemVariants}>
-            <motion.h4 
+            <motion.h4
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -163,7 +163,7 @@ const Footer = () => {
                 { name: "Mosquito Management", href: "/services/mosquito" },
                 { name: "Rodent Management", href: "/services/rodent" },
                 { name: "Bed Bugs Management", href: "/services/bedbugs" },
-                { name: "Bird Management", href: "/services/bird" }
+                { name: "Bird Management", href: "/services/bird" },
               ].map((service, index) => (
                 <motion.li
                   key={index}
@@ -184,7 +184,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <motion.h4 
+            <motion.h4
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -194,41 +194,58 @@ const Footer = () => {
             </motion.h4>
             <ul className="space-y-4">
               {[
-                { 
-                  icon: <FaMapMarkerAlt className="text-green-500 mt-1 mr-3" />, 
-                  content: <span className="text-gray-300">123 Pest Control Ave, City, State 12345</span> 
+                {
+                  icon: <FaMapMarkerAlt className="text-green-500 mt-1 mr-3" />,
+                  content: (
+                    <span className="text-gray-300">
+                      22/127 Raja Manindra Road Kolkata-700037
+                    </span>
+                  ),
                 },
-                { 
-                  icon: <FaPhone className="text-green-500 mt-1 mr-3" />, 
+                {
+                  icon: <FaPhone className="text-green-500 mt-1 mr-3" />,
                   content: (
                     <div>
-                      <a href="tel:03379664262" className="text-gray-300 hover:text-green-400 transition-colors block">
+                      <a
+                        href="tel:03379664262"
+                        className="text-gray-300 hover:text-green-400 transition-colors block"
+                      >
                         03379664262
                       </a>
-                      <a href="tel:9831679025" className="text-gray-300 hover:text-green-400 transition-colors block">
+                      <a
+                        href="tel:9831679025"
+                        className="text-gray-300 hover:text-green-400 transition-colors block"
+                      >
                         9831679025
                       </a>
                     </div>
-                  ) 
+                  ),
                 },
-                { 
-                  icon: <FaEnvelope className="text-green-500 mt-1 mr-3" />, 
+                {
+                  icon: <FaEnvelope className="text-green-500 mt-1 mr-3" />,
                   content: (
-                    <a href="mailto:somu.progressive76@gmail.com" className="text-gray-300 hover:text-green-400 transition-colors">
+                    <a
+                      href="mailto:somu.progressive76@gmail.com"
+                      className="text-gray-300 hover:text-green-400 transition-colors"
+                    >
                       somu.progressive76@gmail.com
                     </a>
-                  ) 
+                  ),
                 },
-                { 
-                  icon: <FaClock className="text-green-500 mt-1 mr-3" />, 
+                {
+                  icon: <FaClock className="text-green-500 mt-1 mr-3" />,
                   content: (
                     <div>
-                      <p className="text-gray-300">Mon-Fri: 8:00 AM - 6:00 PM</p>
+                      <p className="text-gray-300">
+                        Mon-Fri: 8:00 AM - 6:00 PM
+                      </p>
                       <p className="text-gray-300">Sat: 9:00 AM - 4:00 PM</p>
-                      <p className="text-gray-300">Sun: Emergency Services Only</p>
+                      <p className="text-gray-300">
+                        Sun: Emergency Services Only
+                      </p>
                     </div>
-                  ) 
-                }
+                  ),
+                },
               ].map((contact, index) => (
                 <motion.li
                   key={index}
@@ -246,14 +263,14 @@ const Footer = () => {
         </div>
 
         {/* Emergency Service Banner */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.7 }}
           className="bg-green-700 rounded-lg p-6 mt-10 flex flex-col md:flex-row items-center justify-between"
         >
           <div className="flex items-center mb-4 md:mb-0">
-            <motion.div 
+            <motion.div
               initial={{ scale: 0 }}
               animate={inView ? { scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
@@ -283,7 +300,7 @@ const Footer = () => {
       </motion.div>
 
       {/* Copyright Bar */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, delay: 1 }}
@@ -291,17 +308,17 @@ const Footer = () => {
       >
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 1.1 }}
               className="text-gray-400 text-sm mb-3 md:mb-0"
             >
-              © {new Date().getFullYear()} Progressive Pest Control. All rights
-              reserved.Website Developed and Maintained by Digital Exposure Online
-              Services
+              © {new Date().getFullYear()} Progressive Care Service. All rights
+              reserved.Website Developed and Maintained by Digital Exposure
+              Online Services
             </motion.p>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 1.2 }}
@@ -310,7 +327,7 @@ const Footer = () => {
               {[
                 { name: "Privacy Policy", href: "/privacy-policy" },
                 { name: "Terms of Service", href: "/terms" },
-                { name: "Sitemap", href: "/sitemap" }
+                { name: "Sitemap", href: "/sitemap" },
               ].map((link, index) => (
                 <a
                   key={index}

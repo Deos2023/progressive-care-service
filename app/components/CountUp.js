@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaClock, FaUsers, FaStar, FaPhone } from 'react-icons/fa';
@@ -7,7 +8,7 @@ const CountUp = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.3 });
 
   const stats = [
-    { id: 1, icon: <FaClock />, end: 18, suffix: '+', text: 'Years Experience' },
+    { id: 1, icon: <FaClock />, end: 20, suffix: '+', text: 'Years Experience' },
     { id: 2, icon: <FaUsers />, end: 15000, suffix: '+', text: 'Happy Customers' },
     { id: 3, icon: <FaStar />, end: 100, suffix: '%', text: 'Satisfaction Guarantee' },
     { id: 4, icon: <FaPhone />, end: 24, suffix: '/7', text: 'Emergency Service' }
@@ -16,7 +17,7 @@ const CountUp = () => {
   return (
     <section ref={ref} className="py-20 bg-green-700 text-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -24,14 +25,14 @@ const CountUp = () => {
         >
           Why Choose Our Services?
         </motion.h2>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
-            <StatCard 
-              key={stat.id} 
-              stat={stat} 
+            <StatCard
+              key={stat.id}
+              stat={stat}
               index={index}
-              isInView={isInView} 
+              isInView={isInView}
             />
           ))}
         </div>
@@ -50,14 +51,14 @@ const StatCard = ({ stat, index, isInView }) => {
       const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-        
+
         setCount(Math.floor(progress * stat.end));
-        
+
         if (progress < 1) {
           window.requestAnimationFrame(step);
         }
       };
-      
+
       window.requestAnimationFrame(step);
     }
   }, [isInView, stat.end]);

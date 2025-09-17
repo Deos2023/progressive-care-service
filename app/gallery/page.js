@@ -1,15 +1,18 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaSearch, FaTimes, FaArrowLeft, FaArrowRight, FaFilter } from 'react-icons/fa';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { FaSearch, FaTimes, FaArrowLeft, FaArrowRight, FaFilter, FaPlay, FaExpand } from 'react-icons/fa';
 
 const GalleryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
   const [filteredImages, setFilteredImages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, threshold: 0.1 });
 
   // Sample gallery images data
   const galleryImages = [
@@ -161,6 +164,7 @@ const GalleryPage = () => {
     }
     
     setFilteredImages(result);
+    setIsLoading(false);
   }, [selectedCategory, searchTerm]);
 
   const navigateImage = (direction) => {
@@ -190,164 +194,258 @@ const GalleryPage = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 50, opacity: 0, scale: 0.9 },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        duration: 0.5
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8 }
+    }
+  };
+
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
       }
     }
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>Our Gallery | Progressive care service</title>
+        <title>Our Gallery | Progressive Care Service</title>
         <meta name="description" content="View our pest control gallery showcasing our services, team, and results." />
       </Head>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-green-700 text-white overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="container mx-auto px-4 text-center relative z-10"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Gallery</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Explore our work, team, and the results we've achieved for our clients
-          </p>
-        </motion.div>
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-      </section>
-
-      {/* Filters and Search */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative py-28 bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
           <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{ 
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-1/4 left-1/4 w-72 h-72 bg-white/10 rounded-full"
+          ></motion.div>
+          <motion.div 
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              opacity: [0.2, 0.4, 0.2]
+            }}
+            transition={{ 
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute bottom-1/3 right-1/3 w-56 h-56 bg-green-400/20 rounded-full"
+          ></motion.div>
+        </div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-green-200"
+          >
+            Our Gallery
+          </motion.h1>
+          <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl max-w-3xl mx-auto mb-8"
+          >
+            Explore our work, team, and the results we've achieved for our clients
+          </motion.p>
+        </div>
+      </motion.section>
+
+      {/* Filters and Search */}
+      <motion.section 
+        ref={sectionRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="py-16 bg-white"
+      >
+        <div className="container mx-auto px-4">
+          <motion.div 
+            variants={staggerChildren}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8"
           >
-            {/* <div className="flex items-center bg-white rounded-lg shadow-sm px-4 py-2 w-full md:w-auto">
-              <FaSearch className="text-gray-400 mr-2" />
+            {/* <motion.div variants={fadeInUp} className="flex items-center bg-white rounded-xl shadow-lg px-5 py-3 w-full md:w-auto border border-gray-200">
+              <FaSearch className="text-gray-400 mr-3" />
               <input
                 type="text"
                 placeholder="Search gallery..."
-                className="outline-none w-full bg-transparent"
+                className="outline-none w-full bg-transparent placeholder-gray-400"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               {searchTerm && (
-                <button onClick={() => setSearchTerm('')} className="ml-2 text-gray-400 hover:text-gray-600">
+                <motion.button 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  onClick={() => setSearchTerm('')} 
+                  className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
+                >
                   <FaTimes />
-                </button>
+                </motion.button>
               )}
-            </div> */}
+            </motion.div> */}
 
-            <div className="flex flex-wrap gap-2 justify-center">
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 justify-center">
               {categories.map(category => (
-                <button
+                <motion.button
                   key={category.id}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category.id 
-                    ? 'bg-green-600 text-white shadow-md' 
-                    : 'bg-white text-gray-700 hover:bg-gray-100 shadow-sm'
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md ${
+                    selectedCategory === category.id 
+                    ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-lg' 
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
                   }`}
                 >
                   {category.name}
-                </button>
+                </motion.button>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Results count */}
           <motion.p 
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center text-gray-600 mb-2"
+            className="text-center text-gray-600 mb-2 font-medium"
           >
             Showing {filteredImages.length} {filteredImages.length === 1 ? 'item' : 'items'}
             {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
             {searchTerm && ` for "${searchTerm}"`}
           </motion.p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Gallery Grid */}
-      <section className="py-12">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          {filteredImages.length > 0 ? (
+          {isLoading ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-600"></div>
+            </div>
+          ) : filteredImages.length > 0 ? (
             <motion.div
               variants={containerVariants}
-            //   initial="hidden"
+              initial="hidden"
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
             >
-              {filteredImages.map((image) => (
+              {filteredImages.map((image, index) => (
                 <motion.div
                   key={image.id}
                   variants={itemVariants}
-                  className="group relative overflow-hidden rounded-lg shadow-md cursor-pointer bg-white transform transition-transform hover:scale-105"
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white transform transition-all duration-300"
                   onClick={() => setSelectedImage(image)}
                 >
                   <div className="aspect-w-1 aspect-h-1 h-64 relative">
                     {image.isVideo ? (
-                      <div className="w-full h-full bg-gray-800 flex items-center justify-center relative">
-                        <video className="w-full h-full object-cover opacity-90">
-                          <source src={image.src} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                          <div className="bg-black bg-opacity-50 rounded-full p-3">
-                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </div>
+                      <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                        <motion.div 
+                          initial={{ scale: 1 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="absolute inset-0 bg-black/40 flex items-center justify-center"
+                        >
+                          <motion.div 
+                            whileHover={{ scale: 1.1 }}
+                            className="bg-white/20 backdrop-blur-sm rounded-full p-4 border-2 border-white/30"
+                          >
+                            <FaPlay className="text-3xl text-white" />
+                          </motion.div>
+                        </motion.div>
+                        <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1.5 rounded-full text-sm">
+                          Video
                         </div>
                       </div>
                     ) : (
-                      <div className="w-full h-full bg-gray-200 relative">
-                        <Image
-                          src={image.src}
-                          alt={image.title}
-                          fill
-                          className="object-cover"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center hidden">
-                          <span className="text-gray-500">Image not found</span>
+                      <div className="w-full h-full relative overflow-hidden">
+                        <motion.div 
+                          initial={{ scale: 1 }}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.5 }}
+                          className="w-full h-full"
+                        >
+                          <Image
+                            src={image.src}
+                            alt={image.title}
+                            fill
+                            className="object-cover"
+                            onLoadingComplete={() => setIsLoading(false)}
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                        </motion.div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                          <div className="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 w-full">
+                            <h3 className="font-semibold text-sm md:text-base mb-1">{image.title}</h3>
+                            <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              {image.description}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="bg-black/50 rounded-full p-2 backdrop-blur-sm">
+                            <FaExpand className="text-white text-sm" />
+                          </div>
                         </div>
                       </div>
                     )}
-                  </div>
-                  <div className="absolute inset-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-end">
-                    <div className="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 w-full">
-                      <h3 className="font-semibold text-sm md:text-base">{image.title}</h3>
-                      <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">
-                        {image.description}
-                      </p>
-                    </div>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
           ) : (
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-16"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-center py-20"
             >
-              <div className="text-5xl text-gray-300 mb-4">😔</div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">No items found</h3>
-              <p className="text-gray-500">
+              <div className="text-6xl text-gray-300 mb-4">📷</div>
+              <h3 className="text-2xl font-semibold text-gray-600 mb-3">No items found</h3>
+              <p className="text-gray-500 max-w-md mx-auto">
                 Try selecting a different category or adjusting your search term
               </p>
             </motion.div>
@@ -362,41 +460,59 @@ const GalleryPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-4xl w-full max-h-full bg-black rounded-lg overflow-hidden"
+              transition={{ duration: 0.4 }}
+              className="relative max-w-5xl w-full max-h-[90vh] bg-black rounded-xl overflow-hidden shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                className="absolute top-4 right-4 z-10 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 transition-all"
+              {/* Close button */}
+              <motion.button
+                whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.7)" }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute top-4 right-4 z-10 text-white bg-black/50 rounded-full p-3 backdrop-blur-sm border border-white/20"
                 onClick={() => setSelectedImage(null)}
               >
                 <FaTimes className="text-xl" />
-              </button>
+              </motion.button>
 
-              <button
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black bg-opacity-50 rounded-full p-3 hover:bg-opacity-70 transition-all"
-                onClick={() => navigateImage('prev')}
-              >
-                <FaArrowLeft className="text-xl" />
-              </button>
-
-              <button
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black bg-opacity-50 rounded-full p-3 hover:bg-opacity-70 transition-all"
-                onClick={() => navigateImage('next')}
-              >
-                <FaArrowRight className="text-xl" />
-              </button>
+              {/* Navigation buttons */}
+              {filteredImages.length > 1 && (
+                <>
+                  <motion.button
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.7)" }}
+                    whileTap={{ scale: 0.9 }}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black/50 rounded-full p-3 backdrop-blur-sm border border-white/20"
+                    onClick={() => navigateImage('prev')}
+                  >
+                    <FaArrowLeft className="text-xl" />
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.7)" }}
+                    whileTap={{ scale: 0.9 }}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black/50 rounded-full p-3 backdrop-blur-sm border border-white/20"
+                    onClick={() => navigateImage('next')}
+                  >
+                    <FaArrowRight className="text-xl" />
+                  </motion.button>
+                </>
+              )}
 
               <div className="flex flex-col h-full">
-                <div className="flex-grow relative h-96 bg-gray-800 flex items-center justify-center">
+                <div className="flex-grow relative h-[70vh] bg-gray-900 flex items-center justify-center">
                   {selectedImage.isVideo ? (
-                    <video className="w-full h-full object-contain" controls autoPlay>
+                    <video 
+                      className="w-full h-full object-contain" 
+                      controls 
+                      autoPlay 
+                      playsInline
+                    >
                       <source src={selectedImage.src} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -409,10 +525,15 @@ const GalleryPage = () => {
                     />
                   )}
                 </div>
-                <div className="p-6 bg-white">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{selectedImage.title}</h3>
-                  <p className="text-gray-600">{selectedImage.description}</p>
-                </div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="p-6 bg-gradient-to-t from-black to-gray-900 border-t border-gray-800"
+                >
+                  <h3 className="text-xl font-semibold text-white mb-2">{selectedImage.title}</h3>
+                  <p className="text-gray-300">{selectedImage.description}</p>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>
@@ -420,34 +541,58 @@ const GalleryPage = () => {
       </AnimatePresence>
 
       {/* CTA Section */}
-      <section className="py-16 bg-green-600 text-white">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="container mx-auto px-4 text-center"
-        >
-          <h2 className="text-3xl font-bold mb-6">See Our Work in Person</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white"
+      >
+        <div className="container mx-auto px-4 text-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-6"
+          >
+            See Our Work in Person
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-xl mb-10 max-w-3xl mx-auto"
+          >
             Ready to protect your property with our professional pest control services?
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row justify-center gap-6"
+          >
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               href="/contact" 
-              className="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors"
+              className="bg-white text-green-700 hover:bg-gray-100 font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:shadow-xl"
             >
               Request Free Inspection
-            </a>
-            <a 
-              href="tel:1355555555" 
-              className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-bold py-3 px-8 rounded-lg transition-colors"
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="tel:9831679025" 
+              className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:shadow-xl"
             >
-              Call Now: (355) 555-5555
-            </a>
-          </div>
-        </motion.div>
-      </section>
+              Call Now: 9831679025
+            </motion.a>
+          </motion.div>
+        </div>
+      </motion.section>
     </div>
   );
 };
