@@ -137,22 +137,45 @@ const ContactPage = () => {
                 Send us a Message
               </h2>
 
-              {isSubmitted ? (
+              {isSubmitted && (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 text-center"
+                  transition={{ duration: 0.4, type: "spring" }}
+                  className="bg-green-600 text-white px-6 py-5 rounded-xl text-center shadow-xl border border-green-700"
                 >
-                  <p className="font-medium">Thank you for your message!</p>
-                  <p>We'll get back to you as soon as possible.</p>
+                  <div className="flex flex-col items-center justify-center space-y-2">
+                    {/* Icon */}
+                    <svg
+                      className="w-10 h-10 text-white animate-bounce"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+
+                    {/* Text */}
+                    <p className="text-xl font-bold">
+                      Thank you for your message!
+                    </p>
+                    <p className="text-base opacity-90">
+                      We’ll get back to you as soon as possible.
+                    </p>
+                  </div>
                 </motion.div>
-              ) : null}
+              )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
                     Your Name *
                   </label>
@@ -167,7 +190,7 @@ const ContactPage = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 placeholder-gray-500 bg-white shadow-sm hover:border-gray-400"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -176,7 +199,7 @@ const ContactPage = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-800 mb-1"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
                     Email Address *
                   </label>
@@ -191,7 +214,7 @@ const ContactPage = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 placeholder-gray-500 bg-white shadow-sm hover:border-gray-400"
                       placeholder="Enter your email address"
                     />
                   </div>
@@ -200,7 +223,7 @@ const ContactPage = () => {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
                     Phone Number
                   </label>
@@ -214,7 +237,7 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 placeholder-gray-500 bg-white shadow-sm hover:border-gray-400"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -223,7 +246,7 @@ const ContactPage = () => {
                 <div>
                   <label
                     htmlFor="service"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
                     Service Interested In
                   </label>
@@ -232,7 +255,7 @@ const ContactPage = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 bg-white shadow-sm hover:border-gray-400 appearance-none"
                   >
                     <option value="">Select a service</option>
                     <option value="termite">Termite Control</option>
@@ -250,7 +273,7 @@ const ContactPage = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
                     Message *
                   </label>
@@ -265,7 +288,7 @@ const ContactPage = () => {
                       rows="5"
                       value={formData.message}
                       onChange={handleChange}
-                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all"
+                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 placeholder-gray-500 bg-white shadow-sm hover:border-gray-400 resize-none"
                       placeholder="Tell us about your pest problem or inquiry"
                     />
                   </div>
