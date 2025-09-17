@@ -229,7 +229,7 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                src: "/images/pest2.JPG",
+                src: "/images/pest2.jpg",
                 name: "Experienced Technician",
                 role: "Senior Pest Control Specialist",
                 text: "Over 20 years of field experience delivering top-notch pest control solutions.",
