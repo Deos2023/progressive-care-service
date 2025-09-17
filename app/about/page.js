@@ -317,7 +317,7 @@ const AboutUs = () => {
               Get Free Inspection
             </a>
             <a
-              href="tel:03379664262"
+              href="tel:+9103379664262"
               className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-bold py-3 px-8 rounded-lg transition-colors transform hover:scale-105"
             >
               Call Now: 03379664262

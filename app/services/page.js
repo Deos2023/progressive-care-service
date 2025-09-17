@@ -25,7 +25,7 @@ const ServicesPage = () => {
       description: "Complete protection against destructive termites with advanced baiting and treatment systems.",
       details: "Our termite management service includes thorough inspection, soil treatment, baiting systems, and wood treatment to protect your property from structural damage. We offer both preventive and curative solutions.",
       features: ["Advanced detection technology", "Non-repellent termiticides", "10-year warranty", "Free follow-up inspections"],
-      image: "/images/new2.JPG",
+      image: "/images/servic.JPG",
       color: "from-amber-500 to-amber-700"
     },
     {
