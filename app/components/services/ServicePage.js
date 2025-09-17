@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { FaChevronDown, FaChevronUp, FaShieldAlt, FaCheckCircle } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const ServicesSection = () => {
   const [activeTab, setActiveTab] = useState(0);
