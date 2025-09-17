@@ -120,7 +120,7 @@ const Navbar = () => {
           {/* Call Now Button (Desktop) */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="tel:1355555555"
+              href="tel:+9103379664262"
               className={`px-4 py-2 rounded-full flex items-center space-x-2 transition ${
                 isScrolled
                   ? "bg-green-600 text-white hover:bg-green-700 shadow-md"

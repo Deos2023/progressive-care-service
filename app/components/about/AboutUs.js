@@ -1,6 +1,7 @@
 "use client";
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const WhyChooseUs = () => {
   const features = [
@@ -25,7 +26,15 @@ const WhyChooseUs = () => {
         "Get a comprehensive pest assessment with our complimentary inspection service.",
     },
   ];
-
+  const nameRef = useRef("");
+  const emailRef = useRef("");
+  const phoneRef = useRef("");
+  const handleFreeSubmit = (e) => {
+    e.preventDefault();
+    const userMsg = `Name: ${nameRef.current.value}\nEmail: ${emailRef.current.value}\nPhone: ${phoneRef.current.value}\nRequesting a Free Inspection.`;
+    const encodedMsg = encodeURIComponent(userMsg);
+    window.open(`https://wa.me/9831679025?text=${encodedMsg}`, '_blank');
+  }
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -109,15 +118,18 @@ const WhyChooseUs = () => {
                   type="text"
                   placeholder="Your Name"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500"
+                  ref={nameRef}
                 />
                 <input
                   type="email"
                   placeholder="Your Email"
+                  ref={emailRef}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500"
                 />
                 <input
                   type="tel"
                   placeholder="Your Phone"
+                  ref={phoneRef}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500"
                 />
                 <motion.button
@@ -125,8 +137,9 @@ const WhyChooseUs = () => {
                   whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.15)" }}
                   whileTap={{ scale: 0.97 }}
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
+                  onClick={handleFreeSubmit}
                 >
-                  Request Free Inspection
+                  Request Free Inspection via WhatsApp
                 </motion.button>
               </form>
             </div>

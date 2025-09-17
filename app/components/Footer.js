@@ -91,10 +91,9 @@ const Footer = () => {
               className="flex space-x-4"
             >
               {[
-                { icon: <FaFacebookF />, href: "#" },
-                { icon: <FaTwitter />, href: "#" },
-                { icon: <FaInstagram />, href: "#" },
-                { icon: <FaLinkedinIn />, href: "#" },
+                { icon: <FaFacebookF />, href: "https://www.facebook.com/ProgressiveCareService/" },
+                { icon: <FaInstagram />, href: "https://www.instagram.com/" },
+                { icon: <FaLinkedinIn />, href: "https://in.linkedin.com/" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -127,7 +126,6 @@ const Footer = () => {
                 { name: "Services", href: "/services" },
                 { name: "Gallery", href: "/gallery" },
                 { name: "Contact Us", href: "/contact" },
-                { name: "Blog", href: "/blog" },
               ].map((link, index) => (
                 <motion.li
                   key={index}
@@ -207,13 +205,13 @@ const Footer = () => {
                   content: (
                     <div>
                       <a
-                        href="tel:03379664262"
+                        href="tel:+9103379664262"
                         className="text-gray-300 hover:text-green-400 transition-colors block"
                       >
                         03379664262
                       </a>
                       <a
-                        href="tel:9831679025"
+                        href="tel:+919831679025"
                         className="text-gray-300 hover:text-green-400 transition-colors block"
                       >
                         9831679025
@@ -286,7 +284,7 @@ const Footer = () => {
             </div>
           </div>
           <motion.a
-            href="tel:9831679025"
+            href="tel:+919831679025"
             initial={{ scale: 0.8 }}
             animate={inView ? { scale: 1 } : {}}
             whileHover={{ scale: 1.05 }}

@@ -104,6 +104,7 @@ const AboutUs = () => {
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Everything we do is guided by our core values…
+              We use product of Bayer, FMC, Sandhya Chemical, UPL.
             </p>
           </motion.div>
 

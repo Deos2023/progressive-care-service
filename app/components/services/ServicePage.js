@@ -195,6 +195,7 @@ const ServicesSection = () => {
             whileHover={{ scale: 1.05, boxShadow: '0px 8px 20px rgba(0,0,0,0.15)' }}
             whileTap={{ scale: 0.97 }}
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform"
+            onClick={() => window.location.href = '/contact'}
           >
             Get Free Inspection for All Services
           </motion.button>

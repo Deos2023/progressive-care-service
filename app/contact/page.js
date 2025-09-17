@@ -31,8 +31,12 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
+    const userMsg = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interested In: ${formData.service}\nMessage: ${formData.message}`;
+    const encodedMsg = encodeURIComponent(userMsg);
+    window.open(`https://wa.me/9831679025?text=${encodedMsg}`, '_blank');
     // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formData);
+    console.log("Form submitted:", userMsg);
     setIsSubmitted(true);
 
     // Reset form after 3 seconds
@@ -301,7 +305,7 @@ const ContactPage = () => {
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center"
                 >
                   <FaPaperPlane className="mr-2" />
-                  Send Message
+                  Send Message via WhatsApp
                 </motion.button>
               </form>
             </motion.div>
@@ -449,7 +453,7 @@ const ContactPage = () => {
             className="inline-block bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors"
           >
             <FaPhone className="inline mr-2" />
-            Call Now: (355) 555-5555
+            Call Now: 03379664262
           </a>
         </div>
       </motion.section>
