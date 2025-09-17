@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { FaPhone, FaBars, FaTimes, FaBug, FaHome, FaInfoCircle, FaCogs, FaImages, FaEnvelope } from "react-icons/fa"
 
 const Navbar = () => {
@@ -61,7 +62,14 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center"
           >
-            <FaBug className={`text-2xl ${isScrolled ? "text-green-600" : "text-white"} mr-2`} />
+           <div className="relative h-10 w-40 mr-2">
+              <Image
+                src="/images/logo.jpg"
+                alt="Progressive Care Service"
+                fill
+                className={`object-contain ${isScrolled ? "" : "filter brightness-0 invert"}`}
+              />
+            </div>
             <h1
               className={`text-xl font-bold transition-colors duration-300 ${
                 isScrolled ? "text-gray-800" : "text-white"
