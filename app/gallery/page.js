@@ -36,7 +36,7 @@ const GalleryPage = () => {
     },
     {
       id: 4,
-      src: '/images/gallery/new2.jpg',
+      src: '/images/gallery/new2.JPG',
       category: 'mosquito',
       title: 'Mosquito Fogging',
       description: 'Outdoor mosquito fogging treatment in residential area'
