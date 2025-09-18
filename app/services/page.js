@@ -50,7 +50,7 @@ const ServicesPage = () => {
         "Residual spraying",
         "Sanitation recommendations",
       ],
-      image: "/images/cockroach-service.jpg",
+      image: "/images/service2.jpg",
       color: "from-red-500 to-red-700",
     },
     {
@@ -67,7 +67,7 @@ const ServicesPage = () => {
         "Breeding site identification",
         "Long-lasting formulations",
       ],
-      image: "/images/mosquito-service.jpg",
+      image: "/images/gallery/new11.jpg",
       color: "from-blue-500 to-blue-700",
     },
     {
@@ -84,7 +84,7 @@ const ServicesPage = () => {
         "Exclusion techniques",
         "Follow-up monitoring",
       ],
-      image: "/images/rodent-service.jpg",
+      image: "/images/service3.jpg",
       color: "from-gray-500 to-gray-700",
     },
     {
@@ -101,7 +101,7 @@ const ServicesPage = () => {
         "Larvicidal treatment",
         "Sanitation guidance",
       ],
-      image: "/images/fly-service.jpg",
+      image: "/images/service4.webp",
       color: "from-purple-500 to-purple-700",
     },
     {
@@ -118,7 +118,7 @@ const ServicesPage = () => {
         "Residual insecticides",
         "Follow-up inspection",
       ],
-      image: "/images/bedbug-service.jpg",
+      image: "/images/service5.jpg",
       color: "from-rose-500 to-rose-700",
     },
     {
@@ -135,7 +135,7 @@ const ServicesPage = () => {
         "Barrier treatment",
         "Species identification",
       ],
-      image: "/images/ant-service.jpg",
+      image: "/images/service6.jpg",
       color: "from-orange-500 to-orange-700",
     },
     {
@@ -152,7 +152,7 @@ const ServicesPage = () => {
         "Visual deterrents",
         "Humane solutions",
       ],
-      image: "/images/bird-service.jpg",
+      image: "/images/service7.webp",
       color: "from-teal-500 to-teal-700",
     },
   ];
@@ -400,6 +400,11 @@ const ServicesPage = () => {
                             <motion.button
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
+                              onClick={() =>
+                                (window.location.href = `/contact?service=${encodeURIComponent(
+                                  service.title
+                                )}`)
+                              }
                               className={`bg-gradient-to-r ${service.color} hover:shadow-lg text-white font-semibold py-2 sm:py-3 px-4 sm:px-8 rounded-full transition-all text-xs sm:text-base`}
                             >
                               Schedule This Service
@@ -412,9 +417,17 @@ const ServicesPage = () => {
                               transition={{ delay: 0.6 }}
                               className="bg-gradient-to-br from-gray-100 to-gray-200 h-32 sm:h-48 md:h-64 rounded-xl flex items-center justify-center shadow-inner"
                             >
-                              <span className="text-gray-400 text-xs sm:text-base">
-                                Service Visualization
-                              </span>
+                              {service.image ? (
+                                <img
+                                  src={service.image}
+                                  className="w-full h-32 sm:h-48 md:h-64 object-cover rounded-xl"
+                                  alt={service.title}
+                                />
+                              ) : (
+                                <span className="text-gray-400 text-xs sm:text-base">
+                                  Service Visualization
+                                </span>
+                              )}
                             </motion.div>
                           </div>
                         </div>

@@ -20,6 +20,29 @@ const ContactPage = () => {
     service: "",
     message: "",
   });
+
+  // Pre-fill service field from query string
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const serviceTitle = params.get("service");
+      if (serviceTitle) {
+        // Map full service title to select value
+        const titleToValue = {
+          "Termite Management Service": "termite",
+          "Cockroach Management Service": "cockroach",
+          "Mosquito Management Service": "mosquito",
+          "Rodent Management Service": "rodent",
+          "Bed Bugs Management Service": "bedbug",
+          "Ants Management Service": "ant",
+          "Bird Management Service": "bird",
+          "Fly Management Service": "fly",
+        };
+        const mappedValue = titleToValue[serviceTitle] || "other";
+        setFormData((prev) => ({ ...prev, service: mappedValue }));
+      }
+    }
+  }, []);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -106,7 +129,7 @@ const ContactPage = () => {
           content="Get in touch with Progressive care service for professional pest management services."
         />
       </Head>
-     
+
       {/* Hero Section */}
       <section className="relative py-20 bg-green-700 text-white overflow-hidden">
         <motion.div

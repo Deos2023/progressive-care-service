@@ -159,12 +159,12 @@ const Footer = () => {
             </motion.h4>
             <ul className="space-y-1 sm:space-y-2">
               {[
-                { name: "Termite Management", href: "/services/termite" },
-                { name: "Cockroach Management", href: "/services/cockroach" },
-                { name: "Mosquito Management", href: "/services/mosquito" },
-                { name: "Rodent Management", href: "/services/rodent" },
-                { name: "Bed Bugs Management", href: "/services/bedbugs" },
-                { name: "Bird Management", href: "/services/bird" },
+                { name: "Termite Management", href: "/services" },
+                { name: "Cockroach Management", href: "/services" },
+                { name: "Mosquito Management", href: "/services" },
+                { name: "Rodent Management", href: "/services" },
+                { name: "Bed Bugs Management", href: "/services" },
+                { name: "Bird Management", href: "/services" },
               ].map((service, index) => (
                 <motion.li
                   key={index}
@@ -281,7 +281,7 @@ const Footer = () => {
             </motion.div>
             <div>
               <h4 className="text-base sm:text-xl font-bold">
-                24/7 Emergency Pest Control
+                 Pest Control
               </h4>
               <p className="text-green-100 text-xs sm:text-base">
                 Immediate response for urgent pest problems
