@@ -235,6 +235,11 @@ const ServicesSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.97 }}
+                    onClick={() =>
+                      (window.location.href = `/contact?service=${encodeURIComponent(
+                        service.title
+                      )}`)
+                    }
                     className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 sm:px-6 rounded-lg transition-colors duration-300 w-full sm:w-auto text-xs sm:text-sm"
                   >
                     Schedule This Service
