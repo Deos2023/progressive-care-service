@@ -52,31 +52,35 @@ const Navbar = () => {
   return (
     <div>
       {/* Top info bar */}
-      <div className="bg-green-800 text-white text-xs sm:text-sm py-2 px-2 sm:px-4 flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-0">
-        <div className="flex items-center">
-          <FaPhone className="mr-1 sm:mr-2 text-xs" />
-          <span>Call Us: 03379664262</span>
-        </div>
-        <div className="flex items-center">
-          <span>Email: somu.progressive76@gmail.com</span>
+      <div className="bg-green-800 text-white text-xs sm:text-sm py-2 px-2 sm:px-4 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 w-full">
+        <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 w-full justify-between">
+          <div className="flex items-center mb-1 sm:mb-0">
+            <FaPhone className="mr-1 sm:mr-2 text-xs" />
+            <span>Call Us: 03379664262</span>
+          </div>
+          <div className="flex items-center">
+            <span>Email: somu.progressive76@gmail.com</span>
+          </div>
         </div>
       </div>
 
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-3 sm:py-4"
+          isScrolled
+            ? "bg-white shadow-md py-2"
+            : "bg-transparent py-2 sm:py-3 md:py-4"
         }`}
       >
-        <div className="container mx-auto px-2 sm:px-4 flex justify-between items-center max-w-7xl">
+        <div className="container mx-auto px-2 sm:px-4 flex flex-wrap justify-between items-center max-w-7xl">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center"
+            className="flex items-center min-w-[120px]"
           >
-            <div className="relative h-9 w-28 sm:h-12 sm:w-44 mr-2 sm:mr-4">
+            <div className="relative h-8 w-24 sm:h-12 sm:w-44 mr-2 sm:mr-4">
               <Image
                 src="/images/logo.jpg"
                 alt="Progressive Care Service"
@@ -87,7 +91,7 @@ const Navbar = () => {
               />
             </div>
             <h1
-              className={`text-base sm:text-xl font-bold transition-colors duration-300 ${
+              className={`text-xs sm:text-base md:text-xl font-bold transition-colors duration-300 ${
                 isScrolled ? "text-gray-800" : "text-white"
               }`}
             >
@@ -96,7 +100,7 @@ const Navbar = () => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-4 lg:space-x-6">
+          <div className="hidden md:flex flex-wrap space-x-2 sm:space-x-4 lg:space-x-6">
             {navItems.map((item, i) => (
               <a
                 key={i}
@@ -118,7 +122,7 @@ const Navbar = () => {
           </div>
 
           {/* Call Now Button (Desktop) */}
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <div className="hidden md:flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
             <a
               href="tel:+9103379664262"
               className={`px-4 py-2 rounded-full flex items-center space-x-2 transition ${
@@ -139,6 +143,7 @@ const Navbar = () => {
               className={`text-2xl focus:outline-none transition-colors duration-300 ${
                 isScrolled ? "text-gray-800" : "text-white"
               }`}
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <FaTimes /> : <FaBars />}
             </button>
@@ -151,13 +156,13 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full px-3 py-3 space-y-2 z-40"
+            className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full px-2 py-2 space-y-1 z-40"
           >
             {navItems.map((item, i) => (
               <a
                 key={i}
                 href={item.path}
-                className="block text-gray-800 hover:text-green-600 font-medium py-2 flex items-center border-b border-gray-100 text-base"
+                className="flex text-gray-800 hover:text-green-600 font-medium py-2 items-center border-b border-gray-100 text-xs sm:text-base"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.icon}
@@ -166,10 +171,10 @@ const Navbar = () => {
             ))}
             <a
               href="tel:1355555555"
-              className="block bg-green-600 text-white px-3 py-2 rounded-lg text-center hover:bg-green-700 transition flex items-center justify-center mt-2"
+              className="flex bg-green-600 text-white px-2 py-2 rounded-lg text-center hover:bg-green-700 transition items-center justify-center mt-1 sm:mt-2 text-xs sm:text-base"
               onClick={() => setIsMenuOpen(false)}
             >
-              <FaPhone className="mr-2" />
+              <FaPhone className="mr-1 sm:mr-2" />
               Emergency Call
             </a>
           </motion.div>
