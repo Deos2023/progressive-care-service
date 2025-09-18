@@ -272,7 +272,7 @@ const ServicesSection = () => {
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all duration-300 transform w-full sm:w-auto"
             onClick={() => (window.location.href = "/contact")}
           >
-            Get Free Inspection for All Services
+            Inspection for All Services
           </motion.button>
         </motion.div>
       </div>
