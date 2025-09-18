@@ -4,10 +4,10 @@ export default function FloatingButtons() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
       {/* 24 Hour Service Badge */}
-      <div className="flex items-center bg-[#5E3B1F] text-white px-3 py-2 rounded-lg shadow-lg">
+      {/* <div className="flex items-center bg-[#5E3B1F] text-white px-3 py-2 rounded-lg shadow-lg">
         <span className="animate-pulse mr-2 h-2 w-2 bg-white rounded-full"></span>
         <p className="text-xs font-medium">24 Hour Services Available</p>
-      </div>
+      </div> */}
       {/* WhatsApp Button */}
       <a
         href="https://wa.me/9831679025?text=Hi,%20I%20would%20like%20to%20inquire%20about%20your%20services"

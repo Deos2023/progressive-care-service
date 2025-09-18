@@ -61,16 +61,16 @@ const Footer = () => {
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="container mx-auto px-4 py-12"
+        className="container mx-auto px-2 sm:px-4 py-8 sm:py-12 max-w-7xl"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <motion.h3
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl font-bold mb-4 flex items-center"
+              className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 flex items-center"
             >
               <span className="text-green-500 mr-2">Progressive </span> Care
               Service.
@@ -79,7 +79,7 @@ const Footer = () => {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-gray-300 mb-4"
+              className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base"
             >
               Providing professional pest control services with safe, effective,
               and eco-friendly solutions for homes and businesses.
@@ -88,10 +88,13 @@ const Footer = () => {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex space-x-4"
+              className="flex space-x-3 sm:space-x-4"
             >
               {[
-                { icon: <FaFacebookF />, href: "https://www.facebook.com/ProgressiveCareService/" },
+                {
+                  icon: <FaFacebookF />,
+                  href: "https://www.facebook.com/ProgressiveCareService/",
+                },
                 { icon: <FaInstagram />, href: "https://www.instagram.com/" },
                 { icon: <FaLinkedinIn />, href: "https://in.linkedin.com/" },
               ].map((social, index) => (
@@ -115,11 +118,11 @@ const Footer = () => {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-lg font-semibold mb-4 pb-2 border-b border-gray-700"
+              className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 pb-2 border-b border-gray-700"
             >
               Quick Links
             </motion.h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1 sm:space-y-2">
               {[
                 { name: "Home", href: "/" },
                 { name: "About Us", href: "/about" },
@@ -135,7 +138,7 @@ const Footer = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-green-400 transition-colors block py-1"
+                    className="text-gray-300 hover:text-green-400 transition-colors block py-0.5 sm:py-1 text-sm sm:text-base"
                   >
                     {link.name}
                   </a>
@@ -150,11 +153,11 @@ const Footer = () => {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-lg font-semibold mb-4 pb-2 border-b border-gray-700"
+              className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 pb-2 border-b border-gray-700"
             >
               Our Services
             </motion.h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1 sm:space-y-2">
               {[
                 { name: "Termite Management", href: "/services/termite" },
                 { name: "Cockroach Management", href: "/services/cockroach" },
@@ -171,7 +174,7 @@ const Footer = () => {
                 >
                   <a
                     href={service.href}
-                    className="text-gray-300 hover:text-green-400 transition-colors block py-1"
+                    className="text-gray-300 hover:text-green-400 transition-colors block py-0.5 sm:py-1 text-sm sm:text-base"
                   >
                     {service.name}
                   </a>
@@ -186,11 +189,11 @@ const Footer = () => {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-lg font-semibold mb-4 pb-2 border-b border-gray-700"
+              className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 pb-2 border-b border-gray-700"
             >
               Contact Info
             </motion.h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {[
                 {
                   icon: <FaMapMarkerAlt className="text-green-500 mt-1 mr-3" />,
@@ -250,7 +253,7 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                  className="flex items-start"
+                  className="flex items-start text-sm sm:text-base"
                 >
                   {contact.icon}
                   {contact.content}
@@ -265,20 +268,22 @@ const Footer = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="bg-green-700 rounded-lg p-6 mt-10 flex flex-col md:flex-row items-center justify-between"
+          className="bg-green-700 rounded-lg p-4 sm:p-6 mt-8 sm:mt-10 flex flex-col md:flex-row items-center justify-between gap-4"
         >
-          <div className="flex items-center mb-4 md:mb-0">
+          <div className="flex items-center mb-3 md:mb-0">
             <motion.div
               initial={{ scale: 0 }}
               animate={inView ? { scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
-              className="bg-white rounded-full p-3 mr-4"
+              className="bg-white rounded-full p-2 sm:p-3 mr-3 sm:mr-4"
             >
-              <FaPhone className="text-green-700 text-xl" />
+              <FaPhone className="text-green-700 text-base sm:text-xl" />
             </motion.div>
             <div>
-              <h4 className="text-xl font-bold">24/7 Emergency Pest Control</h4>
-              <p className="text-green-100">
+              <h4 className="text-base sm:text-xl font-bold">
+                24/7 Emergency Pest Control
+              </h4>
+              <p className="text-green-100 text-xs sm:text-base">
                 Immediate response for urgent pest problems
               </p>
             </div>
@@ -290,7 +295,7 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.3, delay: 0.9 }}
-            className="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap shadow-md hover:shadow-lg"
+            className="bg-white text-green-700 hover:bg-gray-100 font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors whitespace-nowrap shadow-md hover:shadow-lg text-xs sm:text-base"
           >
             Call Now: 9831679025, 7439839760, 9804046058
           </motion.a>
@@ -304,23 +309,23 @@ const Footer = () => {
         transition={{ duration: 0.5, delay: 1 }}
         className="border-t border-gray-800"
       >
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2">
             <motion.p
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 1.1 }}
-              className="text-gray-400 text-sm mb-3 md:mb-0"
+              className="text-gray-400 text-xs sm:text-sm mb-2 md:mb-0 text-center md:text-left"
             >
               © {new Date().getFullYear()} Progressive Care Service. All rights
-              reserved.Website Developed and Maintained by Digital Exposure
+              reserved. Website Developed and Maintained by Digital Exposure
               Online Services
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 1.2 }}
-              className="flex space-x-6"
+              className="flex space-x-4 sm:space-x-6"
             >
               {[
                 { name: "Privacy Policy", href: "/privacy-policy" },
@@ -330,7 +335,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={link.href}
-                  className="text-gray-400 hover:text-green-400 text-sm transition-colors"
+                  className="text-gray-400 hover:text-green-400 text-xs sm:text-sm transition-colors"
                 >
                   {link.name}
                 </a>

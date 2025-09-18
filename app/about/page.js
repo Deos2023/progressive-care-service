@@ -17,14 +17,14 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-green-700 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-green-700 text-white">
+        <div className="container mx-auto px-2 sm:px-4 text-center max-w-5xl">
           <motion.h1
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
           >
             About progressive care service
           </motion.h1>
@@ -34,7 +34,7 @@ const AboutUs = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-xl max-w-3xl mx-auto"
+            className="text-base sm:text-xl max-w-2xl sm:max-w-3xl mx-auto"
           >
             Protecting homes and businesses with trusted pest control solutions
             since 2004
@@ -43,11 +43,11 @@ const AboutUs = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-10">
+      <section className="py-10 sm:py-14 md:py-16">
+        <div className="container mx-auto px-2 sm:px-4 max-w-5xl">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
             <motion.div
-              className="md:w-1/2"
+              className="w-full md:w-1/2"
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
@@ -70,13 +70,13 @@ const AboutUs = () => {
               </p>
             </motion.div>
             <motion.div
-              className="md:w-1/2"
+              className="w-full md:w-1/2"
               initial={{ opacity: 0, x: 80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
+              <div className="relative h-56 sm:h-72 md:h-96 rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src="/images/2.jpg"
                   alt="progressive care service Team"
@@ -90,8 +90,8 @@ const AboutUs = () => {
       </section>
 
       {/* Mission and Values */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-10 sm:py-14 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-2 sm:px-4 max-w-5xl">
           <motion.div
             className="text-center mb-12"
             variants={fadeUp}
@@ -99,16 +99,16 @@ const AboutUs = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
               Our Mission & Values
             </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Everything we do is guided by our core values…
-              We use product of Bayer, FMC, Sandhya Chemical, UPL.
+            <p className="text-gray-600 max-w-2xl sm:max-w-3xl mx-auto text-sm sm:text-base">
+              Everything we do is guided by our core values… We use product of
+              Bayer, FMC, Sandhya Chemical, UPL.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8">
             {[
               {
                 icon: <FaShieldAlt />,
@@ -137,15 +137,17 @@ const AboutUs = () => {
                   scale: 1.03,
                   boxShadow: "0 12px 28px rgba(0,0,0,0.08)",
                 }}
-                className="bg-white p-8 rounded-lg shadow-md text-center transition-all duration-300"
+                className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-md text-center transition-all duration-300"
               >
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-2xl">
+                <div className="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-green-600 text-xl sm:text-2xl">
                   {card.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                <h3 className="text-base sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3">
                   {card.title}
                 </h3>
-                <p className="text-gray-600">{card.text}</p>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  {card.text}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -153,10 +155,10 @@ const AboutUs = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-10 sm:py-14 md:py-16">
+        <div className="container mx-auto px-2 sm:px-4 max-w-5xl">
           <motion.h2
-            className="text-3xl font-bold text-gray-800 mb-12 text-center"
+            className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 sm:mb-12 text-center"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -165,7 +167,7 @@ const AboutUs = () => {
             Why Choose progressive care service
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
             {[
               {
                 title: "Certified Experts",
@@ -191,19 +193,21 @@ const AboutUs = () => {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                className="flex items-start mb-6"
+                className="flex items-start mb-4 sm:mb-6"
                 variants={fadeUp}
                 custom={i * 0.2}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <FaCheckCircle className="text-green-600 text-xl mt-1 mr-4" />
+                <FaCheckCircle className="text-green-600 text-lg sm:text-xl mt-1 mr-2 sm:mr-4 flex-shrink-0" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  <h3 className="text-base sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600">{item.desc}</p>
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -215,10 +219,10 @@ const AboutUs = () => {
       <CountUp />
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-10 sm:py-14 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-2 sm:px-4 max-w-5xl">
           <motion.h2
-            className="text-3xl font-bold text-gray-800 mb-12 text-center"
+            className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 sm:mb-12 text-center"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -227,7 +231,7 @@ const AboutUs = () => {
             Meet Our Team
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8">
             {[
               {
                 src: "/images/pest2.jpg",
@@ -258,7 +262,7 @@ const AboutUs = () => {
                 whileHover={{ y: -5, boxShadow: "0 12px 28px rgba(0,0,0,0.1)" }}
                 className="bg-white rounded-lg overflow-hidden shadow-md text-center transition-all duration-300"
               >
-                <div className="relative h-72">
+                <div className="relative h-44 sm:h-56 md:h-72">
                   <Image
                     src={member.src}
                     alt={member.name}
@@ -266,12 +270,16 @@ const AboutUs = () => {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-base sm:text-xl font-semibold text-gray-800">
                     {member.name}
                   </h3>
-                  <p className="text-green-600 mb-3">{member.role}</p>
-                  <p className="text-gray-600">{member.text}</p>
+                  <p className="text-green-600 mb-2 sm:mb-3 text-sm sm:text-base">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {member.text}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -280,10 +288,10 @@ const AboutUs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-green-600 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-10 sm:py-14 md:py-16 bg-green-600 text-white">
+        <div className="container mx-auto px-2 sm:px-4 text-center max-w-4xl">
           <motion.h2
-            className="text-3xl font-bold mb-6"
+            className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -292,7 +300,7 @@ const AboutUs = () => {
             Ready to Protect Your Property?
           </motion.h2>
           <motion.p
-            className="text-xl mb-8 max-w-3xl mx-auto"
+            className="text-base sm:text-xl mb-6 sm:mb-8 max-w-2xl sm:max-w-3xl mx-auto"
             variants={fadeUp}
             custom={0.2}
             initial="hidden"
@@ -303,7 +311,7 @@ const AboutUs = () => {
             service…
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4"
+            className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
             variants={fadeUp}
             custom={0.4}
             initial="hidden"
@@ -312,13 +320,13 @@ const AboutUs = () => {
           >
             <a
               href="/contact"
-              className="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors transform hover:scale-105"
+              className="bg-white text-green-700 hover:bg-gray-100 font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg transition-colors transform hover:scale-105 text-sm sm:text-base"
             >
               Get Free Inspection
             </a>
             <a
               href="tel:+9103379664262"
-              className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-bold py-3 px-8 rounded-lg transition-colors transform hover:scale-105"
+              className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg transition-colors transform hover:scale-105 text-sm sm:text-base"
             >
               Call Now: 03379664262
             </a>

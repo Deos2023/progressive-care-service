@@ -33,8 +33,8 @@ const WhyChooseUs = () => {
     e.preventDefault();
     const userMsg = `Name: ${nameRef.current.value}\nEmail: ${emailRef.current.value}\nPhone: ${phoneRef.current.value}\nRequesting a Free Inspection.`;
     const encodedMsg = encodeURIComponent(userMsg);
-    window.open(`https://wa.me/9831679025?text=${encodedMsg}`, '_blank');
-  }
+    window.open(`https://wa.me/9831679025?text=${encodedMsg}`, "_blank");
+  };
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -46,33 +46,38 @@ const WhyChooseUs = () => {
 
   const item = {
     hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
+    <section className="py-10 sm:py-14 md:py-16 bg-white">
+      <div className="container mx-auto px-2 sm:px-4 max-w-6xl">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-8 md:gap-12">
           {/* Left Side */}
           <motion.div
-            className="md:w-1/2 mb-10 md:mb-0"
+            className="w-full md:w-1/2 mb-8 md:mb-0"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
               Why Choose Progressive Care Service?
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              We provide reliable service to our customers since 2004. Our motive is to
-              provide a safe and healthy environment to our customers. With over 20 years
-              of experience, we've developed the most effective pest control strategies
-              that prioritize your safety and deliver lasting results.
+            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+              We provide reliable service to our customers since 2004. Our
+              motive is to provide a safe and healthy environment to our
+              customers. With over 20 years of experience, we've developed the
+              most effective pest control strategies that prioritize your safety
+              and deliver lasting results.
             </p>
 
             <motion.div
-              className="space-y-4"
+              className="space-y-3 sm:space-y-4"
               variants={container}
               initial="hidden"
               whileInView="visible"
@@ -84,12 +89,14 @@ const WhyChooseUs = () => {
                   variants={item}
                   className="flex items-start"
                 >
-                  <FaCheckCircle className="text-green-600 text-xl mt-1 mr-3" />
+                  <FaCheckCircle className="text-green-600 text-lg sm:text-xl mt-1 mr-2 sm:mr-3 flex-shrink-0" />
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      {feature.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -98,45 +105,47 @@ const WhyChooseUs = () => {
 
           {/* Right Side (Form) */}
           <motion.div
-            className="md:w-1/2 md:pl-12"
+            className="w-full md:w-1/2 md:pl-8"
             initial={{ opacity: 0, x: 50, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="bg-green-100 p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+            <div className="bg-green-100 p-4 sm:p-6 md:p-8 rounded-lg shadow-lg h-full flex flex-col justify-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
                 Schedule a Free Inspection
               </h3>
-              <p className="text-gray-600 mb-6">
-                Contact us today to schedule a free pest inspection and get a customized
-                treatment plan.
+              <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+                Contact us today to schedule a free pest inspection and get a
+                customized treatment plan.
               </p>
-
-              <form className="space-y-4">
+              <form className="space-y-3 sm:space-y-4">
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500 text-sm sm:text-base"
                   ref={nameRef}
                 />
                 <input
                   type="email"
                   placeholder="Your Email"
                   ref={emailRef}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500 text-sm sm:text-base"
                 />
                 <input
                   type="tel"
                   placeholder="Your Phone"
                   ref={phoneRef}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 text-gray-800 placeholder-gray-500 text-sm sm:text-base"
                 />
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.15)" }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                  }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 sm:py-3 px-4 rounded-lg transition-colors duration-300 text-sm sm:text-base"
                   onClick={handleFreeSubmit}
                 >
                   Request Free Inspection via WhatsApp

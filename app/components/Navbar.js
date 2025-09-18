@@ -52,9 +52,9 @@ const Navbar = () => {
   return (
     <div>
       {/* Top info bar */}
-      <div className="bg-green-800 text-white text-sm py-2 px-4 flex justify-between items-center">
+      <div className="bg-green-800 text-white text-xs sm:text-sm py-2 px-2 sm:px-4 flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-0">
         <div className="flex items-center">
-          <FaPhone className="mr-2 text-xs" />
+          <FaPhone className="mr-1 sm:mr-2 text-xs" />
           <span>Call Us: 03379664262</span>
         </div>
         <div className="flex items-center">
@@ -65,10 +65,10 @@ const Navbar = () => {
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+          isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-3 sm:py-4"
         }`}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container mx-auto px-2 sm:px-4 flex justify-between items-center max-w-7xl">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -76,7 +76,7 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center"
           >
-            <div className="relative h-12 w-43 mr-4">
+            <div className="relative h-9 w-28 sm:h-12 sm:w-44 mr-2 sm:mr-4">
               <Image
                 src="/images/logo.jpg"
                 alt="Progressive Care Service"
@@ -87,7 +87,7 @@ const Navbar = () => {
               />
             </div>
             <h1
-              className={`text-xl font-bold transition-colors duration-300 ${
+              className={`text-base sm:text-xl font-bold transition-colors duration-300 ${
                 isScrolled ? "text-gray-800" : "text-white"
               }`}
             >
@@ -96,7 +96,7 @@ const Navbar = () => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-4 lg:space-x-6">
             {navItems.map((item, i) => (
               <a
                 key={i}
@@ -118,7 +118,7 @@ const Navbar = () => {
           </div>
 
           {/* Call Now Button (Desktop) */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
             <a
               href="tel:+9103379664262"
               className={`px-4 py-2 rounded-full flex items-center space-x-2 transition ${
@@ -133,7 +133,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center ml-2">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`text-2xl focus:outline-none transition-colors duration-300 ${
@@ -151,13 +151,13 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full px-6 py-4 space-y-4 z-40"
+            className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full px-3 py-3 space-y-2 z-40"
           >
             {navItems.map((item, i) => (
               <a
                 key={i}
                 href={item.path}
-                className="block text-gray-800 hover:text-green-600 font-medium py-2 flex items-center border-b border-gray-100"
+                className="block text-gray-800 hover:text-green-600 font-medium py-2 flex items-center border-b border-gray-100 text-base"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.icon}
@@ -166,7 +166,7 @@ const Navbar = () => {
             ))}
             <a
               href="tel:1355555555"
-              className="block bg-green-600 text-white px-4 py-3 rounded-lg text-center hover:bg-green-700 transition flex items-center justify-center mt-4"
+              className="block bg-green-600 text-white px-3 py-2 rounded-lg text-center hover:bg-green-700 transition flex items-center justify-center mt-2"
               onClick={() => setIsMenuOpen(false)}
             >
               <FaPhone className="mr-2" />

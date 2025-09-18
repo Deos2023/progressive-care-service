@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -32,18 +32,18 @@ const CommonPests = () => {
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-10 sm:py-14 md:py-16 bg-white">
+      <div className="container mx-auto px-2 sm:px-4 max-w-5xl">
         {/* Heading with luxury underline */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 md:mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="inline-block relative">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2 relative z-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-1 sm:mb-2 relative z-10">
               Pests We Eliminate
             </h2>
             {/* animated underline */}
@@ -61,7 +61,7 @@ const CommonPests = () => {
           </div>
 
           <motion.p
-            className="text-lg text-gray-600 max-w-3xl mx-auto mt-4"
+            className="text-base sm:text-lg text-gray-600 max-w-2xl sm:max-w-3xl mx-auto mt-3 sm:mt-4"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -74,7 +74,7 @@ const CommonPests = () => {
 
         {/* Grid with floating cards */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5 md:gap-6"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -95,10 +95,14 @@ const CommonPests = () => {
                 boxShadow: "0px 10px 25px rgba(0,0,0,0.1)",
               }}
               whileTap={{ scale: 0.97 }}
-              className="bg-gray-50 p-6 rounded-lg text-center transition-all duration-300"
+              className="bg-gray-50 p-3 sm:p-4 md:p-6 rounded-lg text-center transition-all duration-300 flex flex-col items-center"
             >
-              <div className="text-3xl mb-3">{pest.icon}</div>
-              <h3 className="font-semibold text-gray-800">{pest.name}</h3>
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">
+                {pest.icon}
+              </div>
+              <h3 className="font-semibold text-gray-800 text-sm sm:text-base md:text-lg">
+                {pest.name}
+              </h3>
             </motion.div>
           ))}
         </motion.div>

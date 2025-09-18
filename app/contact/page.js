@@ -34,7 +34,7 @@ const ContactPage = () => {
     console.log(formData);
     const userMsg = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interested In: ${formData.service}\nMessage: ${formData.message}`;
     const encodedMsg = encodeURIComponent(userMsg);
-    window.open(`https://wa.me/9831679025?text=${encodedMsg}`, '_blank');
+    window.open(`https://wa.me/9831679025?text=${encodedMsg}`, "_blank");
     // Here you would typically send the form data to your backend
     console.log("Form submitted:", userMsg);
     setIsSubmitted(true);
@@ -106,7 +106,7 @@ const ContactPage = () => {
           content="Get in touch with Progressive care service for professional pest management services."
         />
       </Head>
-
+     
       {/* Hero Section */}
       <section className="relative py-20 bg-green-700 text-white overflow-hidden">
         <motion.div
@@ -122,7 +122,6 @@ const ContactPage = () => {
         </motion.div>
         <div className="absolute inset-0 bg-black opacity-30"></div>
       </section>
-
       {/* Contact Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -194,7 +193,7 @@ const ContactPage = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 placeholder-gray-500 bg-white shadow-sm hover:border-gray-400"
+                      className="pl-10 w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all text-xs sm:text-base"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -218,7 +217,7 @@ const ContactPage = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 placeholder-gray-500 bg-white shadow-sm hover:border-gray-400"
+                      className="pl-10 w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all text-xs sm:text-base"
                       placeholder="Enter your email address"
                     />
                   </div>
@@ -241,7 +240,7 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900 placeholder-gray-500 bg-white shadow-sm hover:border-gray-400"
+                      className="pl-10 w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all text-xs sm:text-base"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -431,7 +430,6 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Emergency Contact Banner */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
