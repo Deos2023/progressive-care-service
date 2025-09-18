@@ -175,7 +175,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               <FaPhone className="mr-1 sm:mr-2" />
-              Emergency Call
+               Call now
             </a>
           </motion.div>
         )}
